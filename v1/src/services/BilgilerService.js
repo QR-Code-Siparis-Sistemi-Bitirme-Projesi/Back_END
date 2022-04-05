@@ -2,20 +2,25 @@
 
 const Bilgi = require("../models/Bilgi")
 
-const insert = (bilgiData) =>{
-    const yeniBilgi = new Bilgi(bilgiData);
-    return yeniBilgi.save();
+const insert = (bilgiData) => {
+  const yeniBilgi = new Bilgi(bilgiData);
+  return yeniBilgi.save();
 }
 const Degistir = (DuzenlenenBilgi) => {
-    return Bilgi.findByIdAndUpdate(DuzenlenenBilgi.id, DuzenlenenBilgi)
-  };
-  
-  const remove = (silinecekbilgi) => {
-    return Bilgi.findByIdAndDelete(silinecekbilgi.id)
-  };
+  const yenidüzenlibilgi = {
+    bilgiMetni: DuzenlenenBilgi.bilgiMetni,
+    yapilanYorumlar: DuzenlenenBilgi.yapilanYorumlar,
+    begeniler: DuzenlenenBilgi.begeniler
+  }
+  return Bilgi.findByIdAndUpdate(DuzenlenenBilgi._id, yenidüzenlibilgi)
+};
+
+const remove = (silinecekbilgi) => {
+  return Bilgi.findByIdAndDelete(silinecekbilgi.id)
+};
 
 module.exports = {
-    insert,
-    Degistir,
-    remove
+  insert,
+  Degistir,
+  remove
 }

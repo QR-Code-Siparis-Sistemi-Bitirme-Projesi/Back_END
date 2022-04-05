@@ -29,6 +29,46 @@ const ObjectValidation = (schema) => (req, res, next) => {
   return next();
 };
 
+const idValidation = (schema) => (req, res, next) => {
+  const { value, error } = schema.validate(req.body);
+
+  if (error) {
+    console.log(error);
+    const hataMesajiStr = error.details
+      ?.map((detay) => error.details)
+      .join(", ");
+
+    console.log(`Veri hatalı! -  ${hataMesajiStr}`);
+    res.status(httpStatus.BAD_REQUEST).json({ hataMesaji: "Veriler uygun değil" });
+
+    return;
+  }
+
+  Object.assign(req, value);
+
+  return next();
+};
+
+const updateValidation = (schema) => (req, res, next) => {
+  const { value, error } = schema.validate(req.body);
+
+  if (error) {
+    console.log(error);
+    const hataMesajiStr = error.details
+      ?.map((detay) => error.details)
+      .join(", ");
+
+    console.log(`Veri hatalı! -  ${hataMesajiStr}`);
+    res.status(httpStatus.BAD_REQUEST).json({ hataMesaji: "Veriler uygun değil" });
+
+    return;
+  }
+
+  Object.assign(req, value);
+
+  return next();
+};
+
 module.exports = {
-  ObjectValidation,
+  ObjectValidation, idValidation,updateValidation
 };

@@ -11,19 +11,28 @@
 const Joi = require("joi");
 
 const objectValidate = Joi.object({
-//   bilgiMetni: Joi.string().required().min(50).max(300),
-  bilgiMetni: Joi.string().required(),
+  //   bilgiMetni: Joi.string().required().min(50).max(300),
+  bilgiMetni: Joi.string().required().min(10).max(300),
   yapilanYorumlar: Joi.array(),
   begeniler: Joi.array(),
 });
 
 const idValidate = Joi.object({
-    //özel karakterkere izin verilmemesi alphanum()
-  id: Joi.string().required().alphanum()
+  //özel karakterkere izin verilmemesi alphanum() 
+  id: Joi.string().required().alphanum(),
+});
+
+const updateValidate = Joi.object({
+  //özel karakterkere izin verilmemesi alphanum() 
+  _id: Joi.string().required().alphanum(),
+  bilgiMetni: Joi.string().required().min(0).max(300),
+  yapilanYorumlar: Joi.array(),
+  begeniler: Joi.array(),
 });
 
 
 module.exports = {
-    objectValidate,
-    idValidate
+  objectValidate,
+  idValidate,
+  updateValidate
 }
