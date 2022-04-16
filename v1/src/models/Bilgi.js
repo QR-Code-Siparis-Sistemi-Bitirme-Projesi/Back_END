@@ -7,14 +7,18 @@ const BilgiSchema = new mongoose.Schema(
       yemek: [{
         isim: {},
         fiyat: {},
-        içerik: { type: Array }
+        içerik: { type: Array, default: undefined }
       }],
+      icecek: {
+        type: Array, default: undefined
+      }
     }]
+
   },
   {
-    collection: "PaylasilanBilgiler",
+    collection: "Deneme",
     versionKey: false,
-    undefined
+    default: undefined
   }
 );
 

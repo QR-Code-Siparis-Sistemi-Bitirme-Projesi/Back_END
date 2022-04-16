@@ -7,7 +7,8 @@ const objectValidate = Joi.object({
       isim: Joi.string(),
       fiyat: Joi.string(),
       içerik: Joi.array(),
-    }]
+    }],
+    icecek: Joi.array()
   }]
 });
 
