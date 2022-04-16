@@ -1,31 +1,33 @@
 const express = require("express");
 const router = express.Router();
-const { bilgiEkle, bilgiDuzenle, Sil } = require("../controllers/BilgilerController");
+const {
+  bilgiEkle,
+  bilgiDuzenle,
+  bilgiSil,
+  bilgileriAl,
+} = require("../controllers/BilgilerController");
 const Schemas = require("../validations/Bilgiler");
-const { ObjectValidation, idValidation , updateValidation } = require("../middleware/validations");
+const { ObjectValidation, IdValidate } = require("../middleware/validations");
 
-router.get("/bilgiler", (req, res) => {
+router.route(process.env.GET_LISTELE).get(bilgileriAl);
 
-  console.log("İstek geldi...", req);
+router
+  .route(process.env.POST_EKLE)
+  .post(ObjectValidation(Schemas.objectValidate), bilgiEkle);
 
-  console.log(`Gelen Request ${req}`);
-  res.status(200).send({
-    data: "link",
-    createdTime: "121212",
-  });
-});
+router.route(process.env.PUT_DUZENLE).put(
+  IdValidate(Schemas.idValidate),
+  (req, res, next) => {
+    console.log("Düzenle ikinci middleware metodu!! - req \n", req.body);
+    next();
+  },
+  bilgiDuzenle
+);
 
-router.route("/api/bilgiekle").post(ObjectValidation(Schemas.objectValidate), bilgiEkle);
+router.route(process.env.DELETE_SIL).delete(bilgiSil);
 
-//değişecek
-router.route("/api/bilgiduzenle").put(updateValidation(Schemas.updateValidate), bilgiDuzenle);
-//router.route("/api/bilgiduzenle").put(ObjectValidation(Schemas.idValidate), bilgiDuzenle);//id validation ekle unutma
-router.route("/api/bilgisil").post(Sil);
-
-/** Test */
-router.get("/test/testBilgiler", (req, res) => {
+router.get(process.env.GET_TEST, (req, res) => {
   res.status(200).send(); //??
 });
-router.route("/test/bilgiekle").post(ObjectValidation(Schemas.objectValidate), bilgiEkle);
 
 module.exports = router;

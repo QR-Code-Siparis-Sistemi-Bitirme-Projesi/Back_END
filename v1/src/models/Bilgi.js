@@ -1,20 +1,30 @@
 const mongoose = require("mongoose");
+const logger = require("../scripts/logger/bilgilerLogger");
 
 const BilgiSchema = new mongoose.Schema(
   {
-    bilgiMetni: { type: String, required: true },
-    yapilanYorumlar: { type: Array },
-    begeniler: { type: Array },
+    siparişler: [{
+      yemek: [{
+        isim: {},
+        fiyat: {},
+        içerik: { type: Array }
+      }],
+    }]
   },
   {
     collection: "PaylasilanBilgiler",
-    timestamps: true,
     versionKey: false,
+    undefined
   }
 );
 
+
 BilgiSchema.post("save", (doc) => {
-  console.log("Kaydedilen doküman - ", doc);
+  logger.info("Kaydedilen doküman - ", doc);
+});
+
+BilgiSchema.post("findOneAndUpdate", (doc) => {
+  logger.info("Güncellenen doküman - ", doc);
 });
 
 module.exports = mongoose.model("BilgiSchema", BilgiSchema);

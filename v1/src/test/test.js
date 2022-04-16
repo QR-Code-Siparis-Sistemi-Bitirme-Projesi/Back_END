@@ -4,13 +4,11 @@ const { BilgilerRoutes } = require("../api-routes");
 const { closeConnection } = require("../loaders/db");
 const config = require("../config");
 const loaders = require("../loaders");
-const Bilgi = require("../models/Bilgi")
 
 describe("Uygulama Testi", () => {
   beforeAll(() => {
     config();
     loaders();
-
   });
 
   afterAll(() => {
@@ -19,19 +17,8 @@ describe("Uygulama Testi", () => {
 
   app.use(BilgilerRoutes);
 
-  test("/test/testBilgiler GET test", async () => {
-    const response = await request(app).get("/test/testBilgiler");
-    expect(response.statusCode).toBe(200);
-  });
-  test("/test/bilgiekle ", async () => {
-    const yenidüzenlibilgi = {
-      bilgiMetni: "yeni oluşturulmuş test metini",
-      yapilanYorumlar: [],
-      begeniler: [],
-    }
-    const response = await request(app).post("/test/bilgiekle").send(yenidüzenlibilgi);
+  test("/api/testBilgiler GET test", async () => {
+    const response = await request(app).get("/api/testBilgiler");
     expect(response.statusCode).toBe(200);
   });
 });
-
-
