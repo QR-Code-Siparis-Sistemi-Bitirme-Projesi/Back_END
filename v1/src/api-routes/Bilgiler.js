@@ -1,19 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const {
-  bilgiEkle,
-  bilgiDuzenle,
-  bilgiSil,
-  bilgileriAl,
+  SiparisEkle,
+  SiparisDuzenle,
+  SiparisSil,
+  SiparisleriAl,
 } = require("../controllers/BilgilerController");
 const Schemas = require("../validations/Bilgiler");
 const { ObjectValidation, IdValidate } = require("../middleware/validations");
 
-router.route(process.env.GET_LISTELE).get(bilgileriAl);
+router.route(process.env.GET_LISTELE).get(SiparisleriAl);
 
 router
   .route(process.env.POST_EKLE)
-  .post(ObjectValidation(Schemas.objectValidate), bilgiEkle);
+  .post(ObjectValidation(Schemas.objectValidate), SiparisEkle);
 
 router.route(process.env.PUT_DUZENLE).put(
   IdValidate(Schemas.idValidate),
@@ -21,13 +21,15 @@ router.route(process.env.PUT_DUZENLE).put(
     console.log("Düzenle ikinci middleware metodu!! - req \n", req.body);
     next();
   },
-  bilgiDuzenle
+  SiparisDuzenle
 );
 
-router.route(process.env.DELETE_SIL).delete(bilgiSil);
+router.route(process.env.DELETE_SIL).delete(SiparisSil);
 
+
+//TEST KISMI
 router.get(process.env.GET_TEST, (req, res) => {
-  res.status(200).send(); //??
+  res.status(200).send(); 
 });
 
 module.exports = router;

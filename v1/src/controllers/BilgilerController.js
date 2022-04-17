@@ -1,60 +1,60 @@
 const logger = require("../scripts/logger/bilgilerLogger");
 const { insert, remove, update, list } = require("../services/BilgilerService");
 
-const bilgiEkle = (req, res) => {
+const SiparisEkle = (req, res) => {
   insert(req.body)
     .then((response) => {
       res.status(200).send({ resData: response });
-      logger.info("Bilgi eklendi. Eklenen bilgi - ", req.body);
+      logger.info("Sipariş eklendi. Eklenen bilgi - ", req.body);
     })
     .catch((err) => {
-      logger.error("Bilgi ekleme hatası - ", err);
+      logger.error("Sipariş ekleme hatası - ", err);
       res.status(500).send({ resData: "Veriler uygun değil..." });
     });
   };
-  const bilgiDuzenle = (req, res) => {
+  const SiparisDuzenle = (req, res) => {
     update(req.body)
     .then((response) => {
-      logger.info("Bilgi düzenlendi. Yeni bilgi - ", req.body);
+      logger.info("Sipariş düzenlendi. Yeni bilgi - ", req.body);
       res.status(200).send({ resData: response });
     })
     .catch((err) => {
-      logger.error("Bilgi düzenleme hatası - ", err);
-      res.status(500).send({ resData: "Düzeltme yapılamadı." });
+      logger.error("Sipariş eklenemedi, hata: ", err);
+      res.status(500).send({ resData: "Düzenleme yapılamadı." });
     });
   };
   
-  const bilgileriAl = (req, res) => {
+  const SiparisleriAl = (req, res) => {
     list()
     .then((response) => {
       res.status(200).send({ resData: response });
-      logger.info("Bilgiler alındı.");
+      logger.info("Sipariş bilgileri alındı.");
     })
     .catch((err) => {
-      logger.error("Bilgileri alma hatası - ", err);
+      logger.error("Sipariş bilgileri alınamadı, hata: ", err);
       res
       .status(500)
-      .send({ resData: "Kayıtlar alınamadı." });
+      .send({ resData: "Bilgiler alınamadı." });
     });
   };
   
-  const bilgiSil = (req, res) => {
+  const SiparisSil = (req, res) => {
     remove(req.body)
     .then((response) => {
-      logger.info("Bilgi silindi. Silinen id - ", req.body);
+      logger.info("Sipariş silindi. Silinen id: ", req.body);
       res.status(200).send({ resData: response });
     })
     .catch((err) => {
-      logger.error("Bilgi silme hatası - ", err);
+      logger.error("Sipariş silme hatası, hata: ", err);
       res
         .status(500)
-        .send({ resData: "Silinme işlemi Başarısız." });
+        .send({ resData: "Silme işlemi Başarısız." });
     });
 };
 
 module.exports = {
-  bilgiEkle,
-  bilgiDuzenle,
-  bilgiSil,
-  bilgileriAl
+  SiparisEkle,
+  SiparisDuzenle,
+  SiparisSil,
+  SiparisleriAl
 };

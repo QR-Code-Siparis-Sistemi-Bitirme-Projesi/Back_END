@@ -16,7 +16,7 @@ const BilgiSchema = new mongoose.Schema(
 
   },
   {
-    collection: "Deneme",
+    collection: "Siparişler",
     versionKey: false,
     default: undefined
   }
