@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Programcilikta-GuncelKonular-Org/App_BackEnd.git"
+    "url": "git+https://github.com/QR-Code-Siparis-Sistemi-Bitirme-Projesi/Back_END.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Programcilikta-GuncelKonular-Org/App_BackEnd/issues"
+    "url": "https://github.com/QR-Code-Siparis-Sistemi-Bitirme-Projesi/Back_END/issues"
   },
-  "homepage": "https://github.com/Programcilikta-GuncelKonular-Org/App_BackEnd#readme",
+  "homepage": "https://github.com/QR-Code-Siparis-Sistemi-Bitirme-Projesi/Back_END#readme",
   "dependencies": {
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
