@@ -6,7 +6,7 @@ const {
   SiparisSil,
   SiparisleriAl,
 } = require("../controllers/BilgilerController");
-const Schemas = require("../validations/Bilgiler");
+const Schemas = require("../validations/ValidateBilgiler");
 const { ObjectValidation, IdValidate } = require("../middleware/validations");
 
 router.route(process.env.GET_LISTELE).get(SiparisleriAl);

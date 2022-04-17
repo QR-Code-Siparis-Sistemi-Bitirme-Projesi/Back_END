@@ -1,4 +1,4 @@
-const Bilgi = require("../models/Bilgi");
+const Bilgi = require("../models/UrunBilgileri");
 
 const insert = (bilgiData) => {
   const yeniBilgi = new Bilgi(bilgiData);
