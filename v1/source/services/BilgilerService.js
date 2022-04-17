@@ -4,7 +4,7 @@ const insert = (bilgiData) => {
   const yeniBilgi = new Bilgi(bilgiData);
   return yeniBilgi.save();
 };
-const update = (DuzenlenenBilgi) => {
+const update = (DuzenlenenBilgi) => {   //Düzenlenmiş bilgi.
   const guncelBilgi = {
     siparişler: DuzenlenenBilgi.siparişler,
     yemek: DuzenlenenBilgi.yemek,
@@ -13,15 +13,15 @@ const update = (DuzenlenenBilgi) => {
     içerik:DuzenlenenBilgi.içerik
   };
 
-  return Bilgi.findByIdAndUpdate(DuzenlenenBilgi.id, guncelBilgi);
+  return Bilgi.findByIdAndUpdate(DuzenlenenBilgi.id, guncelBilgi); //Id ile bilgiyi bulup düzenlenen ile değiştirme.
 };
 
 const remove = (silinecekbilgi) => {
-  return Bilgi.findByIdAndDelete(silinecekbilgi.id);
+  return Bilgi.findByIdAndDelete(silinecekbilgi.id); //Id ile bilgiyi bulup silme.
 };
 
 const list = () => {
-  return Bilgi.find({});
+  return Bilgi.find({}); //Bilgileri görüntüleme.
 };
 
 module.exports = {

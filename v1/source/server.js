@@ -7,5 +7,5 @@ app.use(BilgilerRoutes);
 
 app.listen(app_port, () => {
   console.log(`${process.env.APP_PORT} portu dinleniyor...`);
-  logger.info(`${process.env.APP_PORT} portu dinleniyor...`);
+  logger.info(`${process.env.APP_PORT} portu dinleme işlemi.`);
 });

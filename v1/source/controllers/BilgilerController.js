@@ -5,17 +5,17 @@ const SiparisEkle = (req, res) => {
   insert(req.body)
     .then((response) => {
       res.status(200).send({ resData: response });
-      logger.info("Sipariş eklendi. Eklenen bilgi - ", req.body);
+      logger.info("Sipariş eklendi. Eklenen bilgi: ", req.body); //log
     })
     .catch((err) => {
-      logger.error("Sipariş ekleme hatası - ", err);
-      res.status(500).send({ resData: "Veriler uygun değil..." });
+      logger.error("Sipariş ekleme hatası: ", err);  //hata log
+      res.status(500).send({ resData: "Sipariş uygun değil." });
     });
   };
   const SiparisDuzenle = (req, res) => {
     update(req.body)
     .then((response) => {
-      logger.info("Sipariş düzenlendi. Yeni bilgi - ", req.body);
+      logger.info("Sipariş düzenlendi. Yeni sipariş: ", req.body);
       res.status(200).send({ resData: response });
     })
     .catch((err) => {

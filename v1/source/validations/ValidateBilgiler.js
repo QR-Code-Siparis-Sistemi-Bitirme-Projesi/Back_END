@@ -1,6 +1,7 @@
 
 const Joi = require("joi");
 
+//Şemanın doğrulanıp onaylanması.
 const objectValidate = Joi.object({
   siparişler: [{
     yemek: [{

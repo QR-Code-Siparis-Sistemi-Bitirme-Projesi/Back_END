@@ -10,7 +10,7 @@ const ObjectValidation = (schema) => (req, res, next) => {
     logger.error("ObjectValidation hatası - ", error);
     res
       .status(httpStatus.BAD_REQUEST)
-      .json({ hataMesaji: "Verilerde eksik ya da uygunsuzluk var." }); //[object Object] dönmesine bak
+      .json({ hataMesaji: "Verilerde eksik ya da uygunsuzluk var." });
 
     return;
   }
