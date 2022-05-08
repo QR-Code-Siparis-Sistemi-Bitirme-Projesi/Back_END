@@ -11,6 +11,9 @@ const BilgiSchema = new mongoose.Schema(
       }],
       icecek: {
         type: Array, default: undefined
+      },
+      tatli: {
+        type: Array, default: undefined
       }
     }]
 

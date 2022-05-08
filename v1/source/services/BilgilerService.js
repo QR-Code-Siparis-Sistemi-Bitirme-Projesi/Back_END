@@ -10,7 +10,9 @@ const update = (DuzenlenenBilgi) => {   //Düzenlenmiş bilgi.
     yemek: DuzenlenenBilgi.yemek,
     isim: DuzenlenenBilgi.isim,
     fiyat:DuzenlenenBilgi.fiyat,
-    içerik:DuzenlenenBilgi.içerik
+    içerik:DuzenlenenBilgi.içerik,
+    icecek:DuzenlenenBilgi.icecek,
+    tatli:DuzenlenenBilgi.tatli
   };
 
   return Bilgi.findByIdAndUpdate(DuzenlenenBilgi.id, guncelBilgi); //Id ile bilgiyi bulup düzenlenen ile değiştirme.
