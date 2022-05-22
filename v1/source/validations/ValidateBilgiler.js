@@ -14,7 +14,7 @@ const objectValidate = Joi.object({
 });
 
 const idValidate = Joi.object({
-  id: Joi.string().required().alphanum()
+  id: Joi.string().required()
 });
 
 

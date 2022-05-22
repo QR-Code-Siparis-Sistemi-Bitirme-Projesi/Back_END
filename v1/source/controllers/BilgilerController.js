@@ -1,15 +1,15 @@
 const logger = require("../scripts/logger/bilgilerLogger");
-const { insert, remove, update, list } = require("../services/BilgilerService");
+const { MenuAl, remove, update, list } = require("../services/BilgilerService");
 
-const SiparisEkle = (req, res) => {
-  insert(req.body)
+const MenuAl = (req, res) => {
+  MenuAl()
     .then((response) => {
       res.status(200).send({ resData: response });
-      logger.info("Sipariş eklendi. Eklenen bilgi: ", req.body); //log
+      logger.info("Veriler gönderildi, Gönderilen Veri: ", response); //log
     })
     .catch((err) => {
-      logger.error("Sipariş ekleme hatası: ", err);  //hata log
-      res.status(500).send({ resData: "Sipariş uygun değil." });
+      logger.error("Veri hatası: ", err);  //hata log
+      res.status(500).send({ resData: "Veri uygun değil." });
     });
   };
   const SiparisDuzenle = (req, res) => {
@@ -53,7 +53,7 @@ const SiparisEkle = (req, res) => {
 };
 
 module.exports = {
-  SiparisEkle,
+  MenuAl,
   SiparisDuzenle,
   SiparisSil,
   SiparisleriAl

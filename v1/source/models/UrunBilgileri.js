@@ -1,37 +1,161 @@
 const mongoose = require("mongoose");
 const logger = require("../scripts/logger/bilgilerLogger");
 
-const BilgiSchema = new mongoose.Schema(
+const KahvaltiSchema = new mongoose.Schema(
   {
-    siparişler: [{
-      yemek: [{
-        isim: {},
-        fiyat: {},
-        içerik: { type: Array, default: undefined }
-      }],
-      icecek: {
-        type: Array, default: undefined
-      },
-      tatli: {
-        type: Array, default: undefined
-      }
-    }]
+    Urun:{type: String},
+    Fiyat:{type: Object},
+    İçindekiler:[{
+
+    }],
 
   },
   {
-    collection: "Siparişler",
+    collection: "Kahvaltı", //Veri tabanında tablonun adı.
     versionKey: false,
     default: undefined
   }
 );
 
+const iceceklerSchema = new mongoose.Schema(
+  {
+    Urun:{type: String},
+    Fiyat:{type: Object},
 
-BilgiSchema.post("save", (doc) => {
-  logger.info("Kaydedilen doküman - ", doc);
+  },
+  {
+    collection: "icecekler", //Veri tabanında tablonun adı.
+    versionKey: false,
+    default: undefined
+  }
+);
+
+const TekBagelSchema = new mongoose.Schema(
+  {
+    Urun:{type: String},
+    Fiyat:{type: Object},
+
+  },
+  {
+    collection: "Tek_Bagel", //Veri tabanında tablonun adı.
+    versionKey: false,
+    default: undefined
+  }
+);
+
+const TatilarSchema = new mongoose.Schema(
+  {
+    Urun:{type: String},
+    Fiyat:{type: Object},
+
+  },
+  {
+    collection: "Tatlilar", //Veri tabanında tablonun adı.
+    versionKey: false,
+    default: undefined
+  }
+  );
+
+  const SandviclerSchema = new mongoose.Schema(
+    {
+      Urun:{type: String},
+      Fiyat:{type: Object},
+      İçindekiler:[{
+  
+      }],
+  
+    },
+    {
+      collection: "Sandviçler", //Veri tabanında tablonun adı.
+      versionKey: false,
+      default: undefined
+    }
+  );
+  
+    const HaftaSonuOzelSchema = new mongoose.Schema(
+      {
+        Urun:{type: String},
+        Fiyat:{type: Object},
+    
+      },
+      {
+        collection: "Hafta_Sonu_Ozel", //Veri tabanında tablonun adı.
+        versionKey: false,
+        default: undefined
+      }
+    );
+
+  const EkstralarSchema = new mongoose.Schema(
+    {
+      Urun:{type: String},
+      Fiyat:{type: Object},
+  
+    },
+    {
+      collection: "Ekstralar", //Veri tabanında tablonun adı.
+      versionKey: false,
+      default: undefined
+    }
+  );
+  
+
+
+
+KahvaltiSchema.post("save", (doc) => {
+  logger.info("Ürün başarıyla eklendi, eklenen ürün: ", doc);
 });
 
-BilgiSchema.post("findOneAndUpdate", (doc) => {
-  logger.info("Güncellenen doküman - ", doc);
+KahvaltiSchema.post("findOneAndUpdate", (doc) => {
+  logger.info("Başarıyla güncellendi, güncellenen: ", doc);
 });
 
-module.exports = mongoose.model("BilgiSchema", BilgiSchema);
+iceceklerSchema.post("save", (doc) => {
+  logger.info("Ürün başarıyla eklendi, eklenen ürün: ", doc);
+});
+
+iceceklerSchema.post("findOneAndUpdate", (doc) => {
+  logger.info("Başarıyla güncellendi, güncellenen: ", doc);
+});
+
+TekBagelSchema.post("save", (doc) => {
+  logger.info("Ürün başarıyla eklendi, eklenen ürün: ", doc);
+});
+
+TekBagelSchema.post("findOneAndUpdate", (doc) => {
+  logger.info("Başarıyla güncellendi, güncellenen: ", doc);
+});
+
+TatilarSchema.post("save", (doc) => {
+  logger.info("Ürün başarıyla eklendi, eklenen ürün: ", doc);
+});
+
+TatilarSchema.post("findOneAndUpdate", (doc) => {
+  logger.info("Başarıyla güncellendi, güncellenen: ", doc);
+});
+
+SandviclerSchema.post("save", (doc) => {
+  logger.info("Ürün başarıyla eklendi, eklenen ürün:: ", doc);
+});
+
+SandviclerSchema.post("findOneAndUpdate", (doc) => {
+  logger.info("Başarıyla güncellendi, güncellenen: ", doc);
+});
+
+HaftaSonuOzelSchema.post("save", (doc) => {
+  logger.info("Ürün başarıyla eklendi, eklenen ürün: ", doc);
+});
+
+HaftaSonuOzelSchema.post("findOneAndUpdate", (doc) => {
+  logger.info("Başarıyla güncellendi, güncellenen: ", doc);
+});
+
+EkstralarSchema.post("save", (doc) => {
+  logger.info("Ürün başarıyla eklendi, eklenen ürün: ", doc);
+});
+
+EkstralarSchema.post("findOneAndUpdate", (doc) => {
+  logger.info("Başarıyla güncellendi, güncellenen: ", doc);
+});
+
+module.exports = mongoose.model("KahvaltiSchema","iceceklerSchema","TekBagelSchema","TatilarSchema","SandviclerSchema","EkstralarSchema","HaftaSonuOzelSchema",
+EkstralarSchema,SandviclerSchema,TatilarSchema,TekBagelSchema, iceceklerSchema, KahvaltiSchema,HaftaSonuOzelSchema);
