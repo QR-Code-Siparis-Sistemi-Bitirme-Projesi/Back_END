@@ -4,17 +4,16 @@ const {
   MenuAl,
   SiparisDuzenle,
   SiparisSil,
-  SiparisleriAl,
 } = require("../controllers/BilgilerController");
 const Schemas = require("../validations/ValidateBilgiler");
 const { ObjectValidation, IdValidate } = require("../middleware/validations");
-const { MenuAl } = require("../services/BilgilerService");
+
 
 router.route(process.env.GET_LISTELE).get(MenuAl);
 
-router
-  .route(process.env.POST_EKLE)
-  .post(ObjectValidation(Schemas.objectValidate), SiparisEkle);
+// router
+//   .route(process.env.POST_EKLE)
+//   .post(ObjectValidation(Schemas.objectValidate), SiparisEkle);
 
 router.route(process.env.PUT_DUZENLE).put(
   IdValidate(Schemas.idValidate),

@@ -1,5 +1,5 @@
 const logger = require("../scripts/logger/bilgilerLogger");
-const { MenuAl, remove, update, list } = require("../services/BilgilerService");
+const {remove, update, list } = require("../services/BilgilerService");
 
 const MenuAl = (req, res) => {
   MenuAl()

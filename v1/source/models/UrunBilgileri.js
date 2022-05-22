@@ -17,7 +17,7 @@ const KahvaltiSchema = new mongoose.Schema(
   }
 );
 
-const iceceklerSchema = new mongoose.Schema(
+const IceceklerSchema = new mongoose.Schema(
   {
     Urun:{type: String},
     Fiyat:{type: Object},
@@ -100,7 +100,6 @@ const TatilarSchema = new mongoose.Schema(
   
 
 
-
 KahvaltiSchema.post("save", (doc) => {
   logger.info("Ürün başarıyla eklendi, eklenen ürün: ", doc);
 });
@@ -109,11 +108,11 @@ KahvaltiSchema.post("findOneAndUpdate", (doc) => {
   logger.info("Başarıyla güncellendi, güncellenen: ", doc);
 });
 
-iceceklerSchema.post("save", (doc) => {
+IceceklerSchema.post("save", (doc) => {
   logger.info("Ürün başarıyla eklendi, eklenen ürün: ", doc);
 });
 
-iceceklerSchema.post("findOneAndUpdate", (doc) => {
+IceceklerSchema.post("findOneAndUpdate", (doc) => {
   logger.info("Başarıyla güncellendi, güncellenen: ", doc);
 });
 
@@ -157,5 +156,10 @@ EkstralarSchema.post("findOneAndUpdate", (doc) => {
   logger.info("Başarıyla güncellendi, güncellenen: ", doc);
 });
 
-module.exports = mongoose.model("KahvaltiSchema","iceceklerSchema","TekBagelSchema","TatilarSchema","SandviclerSchema","EkstralarSchema","HaftaSonuOzelSchema",
-EkstralarSchema,SandviclerSchema,TatilarSchema,TekBagelSchema, iceceklerSchema, KahvaltiSchema,HaftaSonuOzelSchema);
+module.exports = mongoose.model("KahvaltiSchema",KahvaltiSchema);
+module.exports = mongoose.model("IceceklerSchema",IceceklerSchema);
+module.exports = mongoose.model("TekBagelSchema",TekBagelSchema);
+module.exports = mongoose.model("TatilarSchema",TatilarSchema);
+module.exports = mongoose.model("SandviclerSchema",SandviclerSchema);
+module.exports = mongoose.model("HaftaSonuOzelSchema",HaftaSonuOzelSchema);
+module.exports = mongoose.model("EkstralarSchema",EkstralarSchema);
