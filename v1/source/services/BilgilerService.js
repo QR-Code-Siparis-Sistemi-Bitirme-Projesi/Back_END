@@ -1,13 +1,13 @@
-const Bilgi = require("../models/UrunBilgileri");
+const {kahvalti,icecekler,TekBagel,Tatlilar,Sandvicler,HaftaSonuOzel,Ekstralar} = require("../models/UrunBilgileri");
 
-const MenuAl = () => {
-  const Kahvaltı = Kahvaltı.find({});
-  const icecekler = icecekler.find({});
-  const Tek_Bagel = Tek_Bagel.find({});
-  const Tatlilar = Tatlilar.find({});
-  const Sandviçler = Sandviçler.find({});
-  const Hafta_Sonu_Ozel = Hafta_Sonu_Ozel.find({});
-  const Ekstralar = Ekstralar.find({});
+const MenuAl = async ()  => {
+  const Kahvaltı = await kahvalti.find({});
+  const Icecekler = await icecekler.find({});
+  const Tek_Bagel = await TekBagel.find({});
+  const tatlilar = await Tatlilar.find({});
+  const Sandviçler = await Sandvicler.find({});
+  const Hafta_Sonu_Ozel = await HaftaSonuOzel.find({});
+  const ekstralar = await Ekstralar.find({});
 
 
 
@@ -15,19 +15,21 @@ const MenuAl = () => {
 
     kahvaltiObj: Kahvaltı,
     
-    icecekObj: icecekler,
+    icecekObj: Icecekler,
     
     bagelObj: Tek_Bagel,
 
-    tatliObj: Tatlilar,
+    tatliObj: tatlilar,
 
     sanvicObj: Sandviçler,
 
     haftaSonuObj: Hafta_Sonu_Ozel,
 
-    ekstraObj: Ekstralar,
+    ekstraObj: ekstralar,
 
   }
+
+  return menuObj;
 };
 
 const update = (DuzenlenenBilgi) => {   //Düzenlenmiş bilgi.

@@ -1,9 +1,10 @@
 const logger = require("../scripts/logger/bilgilerLogger");
-const {remove, update, list } = require("../services/BilgilerService");
+const {remove, update, list, MenuAl } = require("../services/BilgilerService");
 
-const MenuAl = (req, res) => {
+const MenuCagir = (req, res) => {
   MenuAl()
     .then((response) => {
+      console.log(response);
       res.status(200).send({ resData: response });
       logger.info("Veriler gönderildi, Gönderilen Veri: ", response); //log
     })
@@ -53,7 +54,7 @@ const MenuAl = (req, res) => {
 };
 
 module.exports = {
-  MenuAl,
+  MenuCagir,
   SiparisDuzenle,
   SiparisSil,
   SiparisleriAl

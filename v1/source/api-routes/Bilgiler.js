@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const {
-  MenuAl,
   SiparisDuzenle,
   SiparisSil,
+  MenuCagir,
 } = require("../controllers/BilgilerController");
 const Schemas = require("../validations/ValidateBilgiler");
 const { ObjectValidation, IdValidate } = require("../middleware/validations");
 
 
-router.route(process.env.GET_LISTELE).get(MenuAl);
+router.route(process.env.GET_LISTELE).get(MenuCagir);
 
 // router
 //   .route(process.env.POST_EKLE)

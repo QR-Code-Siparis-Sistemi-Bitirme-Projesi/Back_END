@@ -156,10 +156,11 @@ EkstralarSchema.post("findOneAndUpdate", (doc) => {
   logger.info("Başarıyla güncellendi, güncellenen: ", doc);
 });
 
-module.exports = mongoose.model("KahvaltiSchema",KahvaltiSchema);
-module.exports = mongoose.model("IceceklerSchema",IceceklerSchema);
-module.exports = mongoose.model("TekBagelSchema",TekBagelSchema);
-module.exports = mongoose.model("TatilarSchema",TatilarSchema);
-module.exports = mongoose.model("SandviclerSchema",SandviclerSchema);
-module.exports = mongoose.model("HaftaSonuOzelSchema",HaftaSonuOzelSchema);
-module.exports = mongoose.model("EkstralarSchema",EkstralarSchema);
+const kahvalti = mongoose.model("KahvaltiSchema",KahvaltiSchema);
+const icecekler = mongoose.model("IceceklerSchema",IceceklerSchema);
+const TekBagel = mongoose.model("TekBagelSchema",TekBagelSchema);
+const Tatlilar = mongoose.model("TatilarSchema",TatilarSchema);
+const Sandvicler = mongoose.model("SandviclerSchema",SandviclerSchema);
+const HaftaSonuOzel = mongoose.model("HaftaSonuOzelSchema",HaftaSonuOzelSchema);
+const Ekstralar = mongoose.model("EkstralarSchema",EkstralarSchema);
+module.exports ={kahvalti,icecekler,TekBagel,Tatlilar,Sandvicler,HaftaSonuOzel,Ekstralar};
