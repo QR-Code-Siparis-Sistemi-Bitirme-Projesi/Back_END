@@ -6,7 +6,7 @@ const {
   MenuCagir,
 } = require("../controllers/BilgilerController");
 const Schemas = require("../validations/ValidateBilgiler");
-const { ObjectValidation, IdValidate } = require("../middleware/validations");
+const { IdValidate } = require("../middleware/validations");
 
 
 router.route(process.env.GET_LISTELE).get(MenuCagir);
