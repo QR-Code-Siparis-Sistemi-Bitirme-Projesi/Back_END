@@ -1,5 +1,5 @@
 const Monngoose = require("mongoose");
-const logger = require("../scripts/logger/bilgilerLogger");
+const logger = require("../scripts/logger/KullaniciLogger");
 const db = Monngoose.connection;
 
 db.on("error", (err) => {

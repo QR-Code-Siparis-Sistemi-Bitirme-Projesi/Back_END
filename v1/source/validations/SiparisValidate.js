@@ -1,7 +1,4 @@
-
-const Joi = require("joi");
-
-const siparisValidate = joi.Object({
+const siparisValidate = ({
   
    masaNo:[{
      Kahvalti:[{
@@ -51,5 +48,5 @@ const siparisValidate = joi.Object({
 
 
 module.exports = {
-  urunValidate
+  siparisValidate
 }

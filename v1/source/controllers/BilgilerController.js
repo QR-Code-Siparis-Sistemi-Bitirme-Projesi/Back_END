@@ -1,4 +1,4 @@
-const logger = require("../scripts/logger/bilgilerLogger");
+const logger = require("../scripts/logger/KullaniciLogger");
 const {remove, update, list, MenuAl } = require("../services/BilgilerService");
 
 const MenuCagir = (req, res) => {

@@ -3,7 +3,7 @@ const winston = require("winston");
 const logger = winston.createLogger({
 
   format: winston.format.json(),
-  defaultMeta: { service: "kullanici-service" }, 
+  defaultMeta: { service: "bilgiler-service" }, 
   transports: [
     new winston.transports.File({
       level: "error",

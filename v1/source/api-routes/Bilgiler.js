@@ -5,7 +5,7 @@ const {
   SiparisSil,
   MenuCagir,
 } = require("../controllers/BilgilerController");
-const Schemas = require("../validations/ValidateBilgiler");
+const Schemas = require("../validations/SiparisValidate");
 const { IdValidate } = require("../middleware/validations");
 
 
