@@ -1,7 +1,7 @@
 //buraya yazılacak metodlar ile kontrol sağlanacak
 
 const httpStatus = require("http-status");
-const logger = require("../scripts/logger/bilgilerLogger");
+const logger = require("../scripts/logger/KullaniciLogger");
 
 const ObjectValidation = (schema) => (req, res, next) => {
   const { value, error } = schema.validate(req.body);

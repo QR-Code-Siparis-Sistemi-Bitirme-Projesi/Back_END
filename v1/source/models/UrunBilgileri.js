@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const logger = require("../scripts/logger/bilgilerLogger");
+const logger = require("../scripts/logger/KullaniciLogger");
 
 const KahvaltiSchema = new mongoose.Schema(
   {

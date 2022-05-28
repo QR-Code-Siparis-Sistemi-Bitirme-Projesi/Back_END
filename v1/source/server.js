@@ -1,6 +1,6 @@
 const app = require("./app");
 const { BilgilerRoutes } = require("./api-routes");
-const logger = require("./scripts/logger/bilgilerLogger");
+const logger = require("./scripts/logger/KullaniciLogger");
 const app_port = process.env.APP_PORT || 3002;
 
 app.use(BilgilerRoutes);
