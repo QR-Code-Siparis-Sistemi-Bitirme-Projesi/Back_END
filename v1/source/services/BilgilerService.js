@@ -32,23 +32,7 @@ const MenuAl = async ()  => {
   return menuObj;
 };
 
-const update = (DuzenlenenBilgi) => {   //Düzenlenmiş bilgi.
-  const guncelBilgi = {
-    siparişler: DuzenlenenBilgi.siparişler,
-    yemek: DuzenlenenBilgi.yemek,
-    isim: DuzenlenenBilgi.isim,
-    fiyat:DuzenlenenBilgi.fiyat,
-    içerik:DuzenlenenBilgi.içerik,
-    icecek:DuzenlenenBilgi.icecek,
-    tatli:DuzenlenenBilgi.tatli
-  };
 
-  return Bilgi.findByIdAndUpdate(DuzenlenenBilgi.id, guncelBilgi); //Id ile bilgiyi bulup düzenlenen ile değiştirme.
-};
-
-const remove = (silinecekbilgi) => {
-  return Bilgi.findByIdAndDelete(silinecekbilgi.id); //Id ile bilgiyi bulup silme.
-};
 
 const list = () => {
   return Bilgi.find({}); //Bilgileri görüntüleme.
@@ -56,7 +40,5 @@ const list = () => {
 
 module.exports = {
   MenuAl,
-  update,
-  remove,
   list
 };
