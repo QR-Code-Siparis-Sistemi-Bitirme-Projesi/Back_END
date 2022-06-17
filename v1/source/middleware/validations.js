@@ -26,11 +26,10 @@ const IdValidate = (schema) => (req, res, next) => {
   if (error) {
     logger.error("IdValidate hatası - ", error);
 
-    res
-      .send({
-        hataMesaji: "id bulunamıyor.",
-        status: httpStatus.BAD_REQUEST,
-      });
+    res.send({
+      hataMesaji: "id bulunamıyor.",
+      status: httpStatus.BAD_REQUEST,
+    });
 
     return;
   }
