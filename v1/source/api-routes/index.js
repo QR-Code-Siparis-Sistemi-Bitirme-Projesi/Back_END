@@ -1,1 +1,1 @@
-module.exports.BilgilerRoutes = require("./Bilgiler");
+module.exports.BilgilerRoutes = require("./Musteri");
