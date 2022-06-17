@@ -1,52 +1,17 @@
-const siparisValidate = ({
-  
-   masaNo:[{
-     Kahvalti:[{
-     Urun:{type: String},
-     Fiyat:{type: Object}, //objectler double değeri ile değiştirilecek. 
-     İçindekiler:[{
-       
-    }],
-      }],
-      icecekler:[{
-      Urun:{type: String},
-      Fiyat:{type: Object},
-       }],
-    
-        Tek_Bagel:[{
-        Urun:{type: String},
-        Fiyat:{type: Object},
-        }],
+const Joi = require("joi");
 
-         Tatlilar:[{
-          Urun:{type: String},
-          Fiyat:{type: Object},
-           }],
-
-           Sandviçler:[{
-            Urun:{type: String},
-            Fiyat:{type: Object},
-            İçindekiler:[{
-              
-           }],
-             }],
-             
-             Hafta_Sonu_Ozel:[{
-              Urun:{type: String},
-              Fiyat:{type: Object},
-               }],
-
-               Ekstralar:[{
-                Urun:{type: String},
-                Fiyat:{type: Object},
-                 }],
-      
-           }],
-
+const SiparisValidate = Joi.object({
+  masaNo: Joi.number().required(),
+  Urun: Joi.string().required(),
+  Fiyat: Joi.number().required(),
+  icindekiler: Joi.array().min(1),
+  Ekstralar: Joi.array().max(50),
+  Not: Joi.string().max(150),
+  ToplamFiyat: Joi.number().required().min(1),
 });
 
-
+//Sipariş için sağlanması gereken koşullar.
 
 module.exports = {
-  siparisValidate
-}
+  SiparisValidate,
+};
