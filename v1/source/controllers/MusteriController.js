@@ -1,6 +1,10 @@
 const logger = require("../scripts/logger/KullaniciLogger");
 const { remove, update, list, MenuAl } = require("../services/MusteriServis");
 
+const {
+  siparisEkle,
+} = require("../services/SiparislerServis");
+
 const MenuCagir = (req, res) => {
   MenuAl()
     .then((response) => {
@@ -13,6 +17,20 @@ const MenuCagir = (req, res) => {
       res.status(500).send({ resData: "Veri uygun değil." });
     });
 };
+
+const SiparisEkle = (req, res) => {
+  siparisEkle(req.body)
+    .then((response) => { // işlem bloğu.
+      res.status(200).send({ resData: response }); //başarılı işlem sonucu dönecek değer.
+      logger.info("Sipariş alındı, alınan sipariş: ", req.body);
+    })
+    .catch((err) => {
+      console.log(err);      // hatayı yakalayacak yer.
+      logger.error("Sipariş ekleme hatası - ", err);
+      res.status(500).send({ resData: "Sipariş hatalı!" }); // başarsıız işlem sonucu dönecek değer.
+    });
+};
+
 // const SiparisDuzenle = (req, res) => {
 //   update(req.body)
 //   .then((response) => {
@@ -55,6 +73,7 @@ const MenuCagir = (req, res) => {
 
 module.exports = {
   MenuCagir,
+  SiparisEkle
   // SiparisDuzenle,
   // SiparisSil,
   // SiparisleriAl,
